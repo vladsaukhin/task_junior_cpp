@@ -31,35 +31,32 @@ int main() {
 	//there is a strict typing of incoming data, you may not do exceptions processing
 	tinyxml2::XMLElement* el = doc.FirstChildElement("root")->FirstChildElement("intervals")->FirstChildElement("interval");
 
-	try {
-		while (el != NULL) {
+	while (el != NULL) {
 
-			leftRange = el->FirstChildElement("low")->Int64Text();
-			rightRange = el->FirstChildElement("high")->Int64Text();
-			++count;
-			//
-			if (leftRange <= 1 || rightRange <= 1 || rightRange >= 4'294'967'295) {
-				exceptionMess2 += std::to_string(count);
-				throw std::out_of_range(exceptionMess2);
-			}
-			if (leftRange >= rightRange) {
-				exceptionMess1 += std::to_string(count);
-				throw std::out_of_range(exceptionMess1);
-			}
+		leftRange = el->FirstChildElement("low")->Int64Text();
+		rightRange = el->FirstChildElement("high")->Int64Text();
+		++count;
 
-
-			multÑalculation.push_back(std::thread(primes_alg, leftRange, rightRange));									//init all threads 
-
+		//max range it's unsigned int 
+		if (leftRange <= 1 || rightRange <= 1 || rightRange >= 4'294'967'295) {
+			exceptionMess2 += std::to_string(count);
+			log_to_file(exceptionMess2);
+			exceptionMess2.erase(exceptionMess2.length() - 1);
 			el = el->NextSiblingElement();
+			continue;
+
 		}
-	}
-	catch (std::exception const& e) {
-		join_thread(multÑalculation);
-		std::cerr << e.what() << std::endl;
+		if (leftRange >= rightRange) {
+			exceptionMess1 += std::to_string(count);
+			log_to_file(exceptionMess1);
+			exceptionMess1.erase(exceptionMess1.length() - 1);
+			el = el->NextSiblingElement();
+			continue;
+		}
 
-		output();
+		multÑalculation.push_back(std::thread(primes_alg, leftRange, rightRange));									//init all threads 
 
-		return 0;
+		el = el->NextSiblingElement();
 	}
 
 	join_thread(multÑalculation);
