@@ -115,6 +115,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Базовые разработки\thread\thread\tinyxml2.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="used_functions.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Базовые разработки\thread\thread\tinyxml2.h" />
+    <ClInclude Include="used_functions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="input.xml" />
+    <Xml Include="output.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
