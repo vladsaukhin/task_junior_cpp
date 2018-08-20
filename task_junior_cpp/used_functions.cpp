@@ -4,18 +4,20 @@
 //the vector will not be threaded into two streams simultaneously if the calculations take a long time
 std::mutex mtx;
 
-//function for searching primes num within a given range
-//l - left range; r - right range
-void primes_alg(ul l, ul r) {
+void primes_alg(int64_t l, int64_t r) {
 
 	bool flag = false;
+
+	if (l == 1) ++l;
+	
+
 	if (l == 2) {
 		std::lock_guard<std::mutex> lcg(mtx);								//critical section
 		result.push_back(l);
 	}
 
-	if (!(l & 1)) l++;														// paired numbers are not primes
-	if (!(r & 1)) r--;
+	if (!(l & 1)) ++l;														// paired numbers are not primes
+	if (!(r & 1)) --r;
 
 	for (; l <= r; l += 2) {
 		flag = true;
@@ -36,10 +38,9 @@ void primes_alg(ul l, ul r) {
 
 }
 
-//detach for asynchronous execution for each thread
 void join_thread(std::vector<std::thread>& other) {
 
-	for (ul i = 0; i < other.size(); i++) {
+	for (int64_t i = 0; i < other.size(); i++) {
 		other.at(i).join();
 	}
 }
@@ -60,7 +61,7 @@ void output()
 	doc.Parse(xml);
 	tinyxml2::XMLElement* el = doc.FirstChildElement("root")->FirstChildElement("primes");
 
-	for (ul i = 0; i < result.size(); i++) {
+	for (int64_t i = 0; i < result.size(); i++) {
 		out += std::to_string(result.at(i));
 		out += " ";
 	}
@@ -70,7 +71,6 @@ void output()
 	doc.SaveFile("output.xml");
 }
 
-//
 void Quick_Sort(int l, int r) {
 
 	int i, j;
@@ -93,11 +93,10 @@ void Quick_Sort(int l, int r) {
 
 }
 
-
 void uniqueness() {
 
-	for (ul i = 0; i < result.size() - 1; i++) {
-		for (ul j = i + 1; j < result.size(); j++) {
+	for (int64_t i = 0; i < result.size() - 1; i++) {
+		for (int64_t j = i + 1; j < result.size(); j++) {
 			if (result.at(i) == result.at(j))
 				result.erase(result.begin() + j);
 		}

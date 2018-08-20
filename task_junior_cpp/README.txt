@@ -16,7 +16,7 @@
   </intervals>
 </root>
 
-3. The values of the given numbers must be in the interval [ 1; 4 294 967 295 ]. 
+3. The values of the given numbers must be in the interval [ 1; 4 294 967 290 ]. 
 3.1 Åhe left range must be greater than the right range.
 4. Use the log file to view errors.
 5. The result you get in the file "output.xml"

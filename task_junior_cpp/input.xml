@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- input file with ranges of searching [ 1; 4 294 967 295 ]-->
+<!-- input file with ranges of searching [ 1; 999'999'999'999 ]-->
 <root>
   <intervals>
     <interval>
-      <low> 10 </low>
-      <high> 30</high>
+      <low> 1 </low>
+      <high> 1</high>
     </interval>
     <interval>
       <low> цук</low>
@@ -19,7 +19,7 @@
       <high> 40</high>
     </interval>
     <interval>
-      <low>-360</low>
+      <low>360</low>
       <high> 9900000000000</high>
     </interval>
     <interval>
