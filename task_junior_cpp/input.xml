@@ -3,8 +3,8 @@
 <root>
   <intervals>
     <interval>
-      <low> 1 </low>
-      <high> 1</high>
+      <low> 100 </low>
+      <high> 1000</high>
     </interval>
     <interval>
       <low> цук</low>

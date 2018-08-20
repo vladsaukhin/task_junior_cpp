@@ -7,7 +7,6 @@
 #include<stdexcept>
 #include<fstream>
 #include <chrono> 
-//#include <gtest/gtest.h>
 
 #pragma warning(disable : 4996)
 #include <ctime>
@@ -24,7 +23,7 @@ extern std::vector<int64_t> result;
 
 //function for searching primes num within a given range
 //l - left range; r - right range
-void primes_alg(int64_t l, int64_t r);
+bool primes_alg(int64_t l, int64_t r);
 
 //join for asynchronous execution for each thread
 void join_thread(std::vector<std::thread> & other);
@@ -34,9 +33,10 @@ void join_thread(std::vector<std::thread> & other);
 //create a .xml file and output the values to the tag <primes/>
 void output();
 
-void Quick_Sort(int l, int r);
+bool Quick_Sort(int l, int r);
 
 void uniqueness();
 
 //outputting time and error text with location information in log file
 void log_to_file(std::string&);
+

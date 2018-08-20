@@ -4,7 +4,12 @@
 //the vector will not be threaded into two streams simultaneously if the calculations take a long time
 std::mutex mtx;
 
-void primes_alg(int64_t l, int64_t r) {
+bool primes_alg(int64_t l, int64_t r) {
+
+	//added to demonstrate the work of the unit test
+	//for values that do not satisfy this condition, checks are performed before creating the flow in main.cpp
+	//return type void
+	if (l < 1 || r < 1 || r > MAX_RVAL) return false;
 
 	bool flag = false;
 
@@ -35,6 +40,8 @@ void primes_alg(int64_t l, int64_t r) {
 			result.push_back(l);
 		}
 	}
+
+	return true;
 
 }
 
@@ -71,12 +78,14 @@ void output()
 	doc.SaveFile("output.xml");
 }
 
-void Quick_Sort(int l, int r) {
+bool Quick_Sort(int l, int r) {
+
+	if (l > r) return false;
 
 	int i, j;
 	i = l;
 	j = r;
-	ul middle = result.at((i + j) / 2);
+	int middle = result.at((i + j) / 2);
 
 	do {
 		while (middle > result.at(i)) i++;
