@@ -14,7 +14,7 @@ namespace UnitTest1
 		
 		TEST_METHOD(TestSortArg)
 		{
-			
+			 
 			bool flag = Primes::Quick_Sort(5, 2);
 			Assert::AreEqual<bool>(true, flag);
 		}
