@@ -117,10 +117,12 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\Базовые разработки\thread\thread\tinyxml2.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Primes.cpp" />
     <ClCompile Include="used_functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Базовые разработки\thread\thread\tinyxml2.h" />
+    <ClInclude Include="Primes.h" />
     <ClInclude Include="used_functions.h" />
   </ItemGroup>
   <ItemGroup>

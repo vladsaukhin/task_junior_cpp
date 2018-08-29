@@ -24,12 +24,18 @@
     <ClCompile Include="..\..\..\Базовые разработки\thread\thread\tinyxml2.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Primes.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="used_functions.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Базовые разработки\thread\thread\tinyxml2.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Primes.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
